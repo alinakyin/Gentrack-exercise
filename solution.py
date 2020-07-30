@@ -41,10 +41,15 @@ def create_CSV(name, data):
     file.close()
 
 
-def main():
-    required_data = parse_XML('testfile.xml')
+def convertXMLtoCSV(file):
+    """Wrapper function for easy use
+    """
+    required_data = parse_XML(file)
     process_data(required_data)
     
+    
+def main():
+    convertXMLtoCSV('testfile.xml')
     
 if __name__ == "__main__":
     main()
