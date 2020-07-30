@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 
 def parse_XML(file):
-    """Returns the CSVIntervalData from the provided XML file as a list of strings
+    """Reads in a XML file and returns the CSVIntervalData as a list of strings
     """
     tree = ET.parse('testfile.xml')
     root = tree.getroot()
@@ -12,9 +12,8 @@ def parse_XML(file):
 
 
 def process_data(data):
-    """Creates a CSV for each block of data that starts with 200
-    Each CSV will have the 100 row as a header, and the 900 row as the trailer
-    Each CSV will be named from the second field in the 200 row
+    """Takes in the CSVIntervalData and creates a CSV for each block of data 
+    that starts with 200
     """    
     header = data.pop(0)
     trailer = data.pop()
