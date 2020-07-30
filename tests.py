@@ -1,10 +1,8 @@
 import csv
 from solution import parse_XML
- 
-def main():
-    """Verifies that the CSVs were generated with the correct names, headers and trailers
-    """
-    test_data = parse_XML('testfile.xml') # Gets the CSVIntervalData
+
+def run_tests(file):
+    test_data = parse_XML(file) # Gets the CSVIntervalData
     expected_files = [] # Will contain the names of CSVs that should have been generated
     
     for row in test_data:
@@ -35,7 +33,13 @@ def main():
         
     if success: 
         print('Tests passed')
-        
+
+    
+def main():
+    """Verifies that the CSVs were generated with the correct names, headers and trailers
+    """
+    run_tests('testfile.xml')
+    
         
 if __name__ == "__main__":
     main()
