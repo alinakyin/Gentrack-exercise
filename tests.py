@@ -2,8 +2,8 @@ import csv
 from solution import parse_XML
  
 def main():
-    """Verifies that the CSVs were generated, with the correct names, headers and trailers"""
-    
+    """Verifies that the CSVs were generated with the correct names, headers and trailers
+    """
     test_data = parse_XML('testfile.xml') # Gets the CSVIntervalData
     expected_files = [] # Will contain the names of CSVs that should have been generated
     

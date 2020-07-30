@@ -1,11 +1,13 @@
 import xml.etree.ElementTree as ET
 
 def parse_XML(file):
+    """Returns the CSVIntervalData from the provided XML file as a list of strings
+    """
     tree = ET.parse('testfile.xml')
     root = tree.getroot()
     for data in root.findall('./Transactions/Transaction/MeterDataNotification/CSVIntervalData'):
         required_data = data.text.strip().split()
-        
+ 
     return required_data
 
 
@@ -32,6 +34,8 @@ def process_data(data):
 
 
 def create_CSV(name, data):
+    """Writes a new CSV file
+    """
     with open(name + '.csv', 'w') as file:
         for line in data:
             file.write(line + '\n') 
