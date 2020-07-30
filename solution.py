@@ -12,10 +12,9 @@ def parse_XML(file):
 
 
 def process_data(data):
-    """Create a CSV for each block of data that starts with 200
+    """Creates a CSV for each block of data that starts with 200
     Each CSV will have the 100 row as a header, and the 900 row as the trailer
     Each CSV will be named from the second field in the 200 row
-    Remove leading and trailing white spaces, newlines, tabs, etc.
     """    
     header = data.pop(0)
     trailer = data.pop()
@@ -26,7 +25,7 @@ def process_data(data):
             name = data[i].split(',')[1]
             data_block = [header, data[i]] 
             i += 1
-            while i < len(data) and data[i].split(',')[0] == '300':
+            while i < len(data) and data[i].split(',')[0] != '200':
                 data_block.append(data[i])
                 i += 1   
         data_block.append(trailer)
